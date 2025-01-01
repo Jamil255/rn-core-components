@@ -67,7 +67,7 @@ const MyComponent = () => {
       /> */}
           
           
-      {/* <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -91,7 +91,7 @@ const MyComponent = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </Text>
-      </ScrollView> */}
+      </ScrollView>
 
           {/* <TouchableOpacity activeOpacity={0.5} onPress={() => console.log('Button clicked')} style={{backgroundColor: 'blue', padding: 10, borderRadius: 5}}>
             <Text>Click me</Text>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden', // Ensures rounded corners affect children
   },
   text: {
-    color: 'white',
+    color: 'red',
     fontSize: 20,
     fontWeight: 'bold',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
