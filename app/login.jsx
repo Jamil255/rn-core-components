@@ -30,7 +30,7 @@ const LoginScreen = () => {
         >
           <Image
             style={{ width: 200, height: 200 }}
-            resizeMode="contain"
+            resizeMode="cover"
             source={require('../assets/images/DB2019AL01950_web_1600-removebg-preview.png')}
           />
         </View>
