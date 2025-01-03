@@ -1,4 +1,4 @@
-import { Link } from 'expo-router'
+import { Link, useRouter } from 'expo-router'
 import React, { useState } from 'react'
 import {
   View,
@@ -9,17 +9,21 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
 // #041a3d
 const LoginScreen = () => {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const onSubmitHandler = () => {
-    console.log(email, password)
     setEmail('')
-    setPassword('')
+      setPassword('')
+      
+    router.push({ pathname: '/signup', params: { email } })
   }
   return (
-    <ScrollView>
+      <ScrollView>
+          {/* <StatusBar style="dark" /> */}
       <View style={{ flex: 1, alignItems: 'center' }}>
         <View
           style={{

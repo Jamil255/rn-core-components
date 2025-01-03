@@ -1,12 +1,5 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import{Unmatched }from "expo-router"
 
-const NotFound = () => {
-  return (
-    <View>
-      <Text>not found</Text>
-    </View>
-  )
-}
-
-export default NotFound
+export default Unmatched 

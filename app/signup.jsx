@@ -1,23 +1,31 @@
-import { Link } from 'expo-router'
-import React, { useState } from 'react'
+import { Link, useNavigation } from 'expo-router'
+import React, { useEffect, useState } from 'react'
 import {
-  View,
-  Text,
   Image,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
   ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native'
-// #041a3d
+import { useGlobalSearchParams } from 'expo-router'
+
 const SignUpScreen = () => {
+  const name = useGlobalSearchParams()
+  const navigation  = useNavigation()
+  console.log(name)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const onSubmitHandler = () => {
-    console.log(email, password)
     setEmail('')
     setPassword('')
   }
+//   useEffect(() => {
+//     navigation.setOptions({ title: name })
+//   }, [])
+
   return (
     <ScrollView>
       <View style={{ flex: 1, alignItems: 'center' }}>
@@ -35,66 +43,32 @@ const SignUpScreen = () => {
           />
         </View>
 
-        <View
-          style={{
-            justifyContent: 'center',
-            marginTop: 10,
-          }}
-        >
-          <Text
-            style={{ fontSize: 25, fontWeight: 'bold', fontFamily: 'arial' }}
-          >
-            Signup
-          </Text>
+        <View style={{ justifyContent: 'center', marginTop: 10 }}>
+          <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Signup</Text>
         </View>
 
-        <View
-          style={{
-            marginTop: 16,
-            width: '80%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <View style={{ marginTop: 16, width: '80%', alignItems: 'center' }}>
           <TextInput
             style={styles.inputText}
-            placeholder="please enter a email"
+            placeholder="Please enter an email"
             value={email}
-            inputMode="email"
-            placeholderTextColor="#041a3d"
-            onChangeText={(e) => setEmail(e)}
+            onChangeText={setEmail}
           />
         </View>
 
-        <View
-          style={{
-            marginTop: 16,
-            width: '80%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <View style={{ marginTop: 16, width: '80%', alignItems: 'center' }}>
           <TextInput
             style={styles.inputText}
-            placeholder="please enter a password"
+            placeholder="Please enter a password"
             value={password}
-            secureTextEntry={true}
-            inputMode="text"
-            onChangeText={(e) => setPassword(e)}
+            secureTextEntry
+            onChangeText={setPassword}
           />
         </View>
 
         <View style={{ marginTop: 19, width: '80%' }}>
           <TouchableOpacity
-            style={{
-              backgroundColor: '#041a3d',
-              padding: 17,
-              color: 'white',
-              borderRadius: 8,
-              width: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
+            style={styles.submitButton}
             onPress={onSubmitHandler}
           >
             <Text style={{ color: 'white' }}>Sign up</Text>
@@ -102,8 +76,8 @@ const SignUpScreen = () => {
         </View>
 
         <View style={{ marginTop: 10 }}>
-          <Text style={{ fontFamily: 'arial', fontSize: 15 }}>
-            Have a already an account? <Link href="/login">Login</Link>
+          <Text>
+            Already have an account? <Link href="/login">Login</Link>
           </Text>
         </View>
       </View>
@@ -118,9 +92,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#041a3d',
     borderRadius: 8,
-    margin: 10,
     padding: 10,
     width: '100%',
-    paddingHorizontal: 10,
+  },
+  submitButton: {
+    backgroundColor: '#041a3d',
+    padding: 17,
+    borderRadius: 8,
+    alignItems: 'center',
   },
 })
