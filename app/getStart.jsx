@@ -2,8 +2,10 @@ import React from 'react'
 import { View, Image, TouchableOpacity, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import styles from './style' // Assuming you have external styles defined.
+import { useRouter } from 'expo-router'
 
 const GetStartScreen = () => {
+  const router = useRouter()
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
@@ -41,7 +43,11 @@ const GetStartScreen = () => {
           <Text style={styles.textDescirption}>
             system for restaurants and cafe{' '}
           </Text>
-          <TouchableOpacity style={styles.btn} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.btn}
+            activeOpacity={0.8}
+            onPress={() => router.push('Setting')}
+          >
             <Text style={styles.btnText}>Get Started</Text>
           </TouchableOpacity>
         </View>
