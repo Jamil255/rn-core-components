@@ -10,6 +10,7 @@ const HomeLayout = () => {
       }}
     >
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="drawer" options={{ headerShown: false }} />
       <Stack.Screen
         name="getStart"
         options={{
